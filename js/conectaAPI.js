@@ -1,11 +1,14 @@
-async function conectaAPI(){
+async function listaVideos(){
     try{
         const conexao = await fetch('http://localhost:3000/videos')
-        const livros = await conexao.json();
-        console.table(livros)
+        const conexaoConvertida = await conexao.json();
+        return conexaoConvertida
 
     } catch (err) {
         console.log(err)
     }
 }
-conectaAPI()
+
+export const conectaAPI = {
+    listaVideos
+}
